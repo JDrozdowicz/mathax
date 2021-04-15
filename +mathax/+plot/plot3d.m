@@ -13,7 +13,7 @@ switch (nargin)
     case 2
         p_x = varargin{1}(1,:);
         p_y = varargin{1}(2,:);
-        p_z = varargin{1}(2,:);
+        p_z = varargin{1}(3,:);
         image_3d = varargin{2};
     case 4
         x_axis = varargin{1};
@@ -56,7 +56,7 @@ data_x = p_x_vect(result_ind);
 data_y = p_y_vect(result_ind);
 data_z = p_z_vect(result_ind);
 data_s = scale*normalize(result_vect(result_ind))+1;
-data_c = p_x_vect(result_ind);
+data_c = normalize(result_vect(result_ind));
 
 
 h = scatter3(data_x,data_y,data_z,data_s,data_c,'filled');
@@ -136,7 +136,7 @@ h.CDataSource = 'data_c';
         data_y = p_y_vect(result_ind);
         data_z = p_z_vect(result_ind);
         data_s = scale*normalize(result_vect(result_ind))+1;
-        data_c = p_x_vect(result_ind);
+        data_c = normalize(result_vect(result_ind));
         refreshdata(h,'caller');
 
         
@@ -155,7 +155,7 @@ h.CDataSource = 'data_c';
         data_y = p_y_vect(result_ind);
         data_z = p_z_vect(result_ind);
         data_s = scale*normalize(result_vect(result_ind))+1;
-        data_c = p_x_vect(result_ind);
+        data_c = normalize(result_vect(result_ind));
         refreshdata(h,'caller');
 		
 	end
